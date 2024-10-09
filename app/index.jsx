@@ -1,14 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import {Link} from 'expo-router';
+import { Text, TouchableOpacity, View } from 'react-native';
+import {Link, router} from 'expo-router';
+import CustomButton from '../components/CustomButton'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-3xl">indexzzz</Text>
-      <Link href="/account-page" style={{color: 'blue'}}>Go to Tabs</Link>
-      <Link href="/sign-in" style={{color: 'blue'}}>Go to Auth</Link>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView className="bg-primary h-full justify-center">
+            <CustomButton
+                title="Sign In"
+                handlePress={()=> router.push('/log-transaction-page')}
+                buttonStyles="w-full"
+                textStyles="text-white font-psemibold"
+            />
+            
+        <StatusBar backgroundColor=""
+        style="light"
+      />
+    </SafeAreaView>
+    
   );
+
 }
