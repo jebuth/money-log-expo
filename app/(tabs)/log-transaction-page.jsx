@@ -6,6 +6,7 @@ import CustomTextInput from '../../components/CustomTextInput'
 import CustomButton from '../../components/CustomButton'
 import CustomTextLabel from '../../components/CustomTextLabel'
 import CustomFlatList from '../../components/CustomFlatList'
+import {categoryList} from '../../api/apidev'
 
 const LogTransaction = () => {
   return (
@@ -22,7 +23,7 @@ const LogTransaction = () => {
             <CustomButton buttonStyles="w-1/2 mb-4 mt-2" textStyles="text-snow font-psemibold" title="Log"/>
           </View>
           <View className="bg-snow rounded-xl mx-3 mt-3">
-            <CustomFlatList/>
+            <CustomFlatList data={categoryList()}/>
           </View>
         </View>
       
