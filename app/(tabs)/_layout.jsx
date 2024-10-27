@@ -2,8 +2,12 @@ import { StyleSheet, Text, View, Image  } from 'react-native'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {Tabs, Redirect} from 'expo-router';
 import {icons} from '../../constants';
+import {useTheme} from '../../contexts/ThemeProvider'
 
 const TabIcon = ({icon, color, name, focused}) => {
+
+  
+
   return (
     <View className="items-center justify-center mt-4">
       <Image 
@@ -20,15 +24,16 @@ const TabIcon = ({icon, color, name, focused}) => {
 }
 
 const TabsLayout = () => {
+  const {theme, toggleTheme, colors} = useTheme();
   return (
     <>
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: '#009063',
-          tabBarInactiveTintColor: '#CDCDE0',
+          tabBarActiveTintColor: theme.colors.tabBarActiveTintColor, // discordYellow
+          tabBarInactiveTintColor: theme.colors.tabBarInActiveTintColor, // gainsboro
           tabBarStyle:{
-            backgroundColor: '#FCFCFC',
+            backgroundColor: theme.colors.tabBarStyleBackgroundColor, // discordBlack
             height: 84
           }
         }}

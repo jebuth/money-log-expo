@@ -10,14 +10,16 @@ import SheetsFlatList from '../../components/SheetsFlatList'
 import { Animated } from 'react-native'
 import {sheetList} from '../../api/apidev'
 import {icons} from '../../constants'
+import {useTheme} from '../../contexts/ThemeProvider'
 
 const SheetSelection = () => {
 
+  const {theme, toggleTheme, colors} = useTheme();
   const [inputText, setInputText] = useState('');
   const isButtonEnabled = inputText.length >= 3;
 
   return (
-    <SafeAreaView className="flex-1 bg-gainsboro">
+    <SafeAreaView className={`flex-1 ${theme.colors.primaryBackgroundColor}`}>
     <KeyboardAvoidingView 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
@@ -25,22 +27,24 @@ const SheetSelection = () => {
       >
       <View className="flex-1">
         {/* Logs Section */}
-        <View className="bg-snow rounded-xl mx-3 mt-3 flex-1">
+        {/* <View className="bg-snow rounded-xl mx-3 mt-3 flex-1"> */}
+        <View className={`rounded-xl mx-3 mt-3 flex-1 ${theme.colors.secondaryBackgroundColor}`}>
           <CustomTextLabel 
             containerStyles="mt-5 ml-10 mb-2" 
-            textStyles="text-3xl text-black font-pextrabold" 
+            textStyles={`text-3xl text-black font-pextrabold ${theme.colors.textColor}`} 
             text="Logs"
           />
-          <View className="h-0.5 mx-10 bg-gainsboro" />
+          <View className="h-0.5 mx-5 bg-gainsboro" />
           <SheetsFlatList data={sheetList()} />
         </View>
 
         {/* Input Section - Fixed at bottom */}
-        <Animated.View className="bg-snow rounded-xl mx-3 mt-3 py-1 flex-row justify-between">
+        {/* <Animated.View className="bg-snow rounded-xl mx-3 mt-3 py-1 flex-row justify-between"> */}
+        <Animated.View className={`${theme.colors.secondaryBackgroundColor} rounded-xl mx-3 mt-3 py-1 flex-row justify-between`}>
         <View className={'justify-center items-center w-4/5 ml-1.5'}>
-            <View className={'border-2 border-snow h-12 bg-gainsboro rounded-xl focus:border-darkerGreen flex-row'}>
+            <View className={` ${theme.colors.textInputBackgroundColor} ${theme.colors.textInputBorderHighlightedColor} h-12 rounded-lg flex-row`}>
                 <TextInput 
-                  className="flex-1 text-black font-psemibold text-base"
+                  className={`${theme.colors.textColor} flex-1 text-2xl font-medium pl-2`}
                   placeHolder=''
                   placeholderTextColor="#7b7b8b"
                   value={inputText}
@@ -56,7 +60,7 @@ const SheetSelection = () => {
             <Image 
               source={icons.plus}
               resizeMode="contain"
-              tintColor={isButtonEnabled ? "#009063" : "#CCCCCC"}
+              tintColor={isButtonEnabled ? theme.colors.addSheetsButtonStyle : "#CCCCCC"}
               className="w-12 h-12"
             />
           </TouchableOpacity>

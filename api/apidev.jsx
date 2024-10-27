@@ -17,20 +17,20 @@ export function categoryList(){
 
 export function sheetList(){
     const data = [
-        { title: "January 2024"}, 
-        { title: "February 2024"}, 
-        { title: "Washington Trip"}, 
-        { title: "Mazda maintenance"}, 
-        { title: "Mexico Vacation"}, 
-        { title: "Rental Property"}, 
-        { title: "March 2024"},
-        { title: "Thailand 2023"},
-        { title: "Christmas 2023"}, 
-        { title: "Toyota Camper Build"},
-        { title: "March 2024"},
-        { title: "Thailand 2023"},
-        { title: "Christmas 2023"}, 
-        { title: "Toyota Camper Build"},
+        { title: "January 2024", total: "$4,626"}, 
+        { title: "February 2024", total: "$2,893"}, 
+        { title: "Washington Trip", total: "$3,316"}, 
+        { title: "Mazda maintenance", total: "$6,785"}, 
+        { title: "Mexico Vacation", total: "$4,272"}, 
+        { title: "Rental Property", total: "$4,729"}, 
+        { title: "March 2024", total: "$7,910"},
+        { title: "Thailand 2023", total: "$2,944"},
+        { title: "Christmas 2023", total: "$136"}, 
+        { title: "Toyota Camper Build", total: "$3,626"},
+        { title: "March 2024", total: "$7,784"},
+        { title: "Thailand 2023", total: "$3,662"},
+        { title: "Christmas 2023", total: "$8,245"}, 
+        { title: "Toyota Camper Build", total: "$3,155"},
     ]
     return data;
 }

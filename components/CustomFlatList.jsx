@@ -2,14 +2,18 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import {categoryList} from '../api/apidev'
 import CustomTextLabel from './CustomTextLabel'
+import {useTheme} from '../contexts/ThemeProvider'
 
 
 const CustomFlatList = ({data}) => {
+
+    const {theme, toggleTheme, colors} = useTheme();
+
     const renderItem = ({ item }) => (
         <>
         <View className="w-full flex flex-row justify-between mt-0 py-3">
-            <CustomTextLabel containerStyles="ml-10" textStyles="text-xl" text={item.category}></CustomTextLabel>
-            <CustomTextLabel containerStyles="mr-10" textStyles="text-xl" text={`$${item.amount}`}></CustomTextLabel>
+            <CustomTextLabel containerStyles="ml-10" textStyles={`text-xl ${theme.colors.textColor}`} text={item.category} />
+            <CustomTextLabel containerStyles="mr-10" textStyles={`text-xl ${theme.colors.secondaryTextColor}`} text={`$${item.amount}`} />
         </View>
         <View className="h-0.5 mx-10 bg-gainsboro" />
         </>
