@@ -11,7 +11,7 @@ const SheetsFlatList = ({data}) => {
 
     const renderItem = ({ item }) => (
         <>
-            <View className={`rounded-lg my-1 ${theme.colors.menuItemBackgroundColor}`}>
+            <View className={`rounded-lg my-1 shadow-sm ${theme.colors.menuItemBackgroundColor}`}>
                 <TouchableOpacity className="rounded-lg w-full flex flex-row justify-between px-6">
                     <CustomTextLabel 
                         containerStyles="py-3" 

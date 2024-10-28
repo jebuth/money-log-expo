@@ -3,7 +3,7 @@ import React from 'react'
 
 const CustomTextLabel = ({text, containerStyles, textStyles}) => {
   return (
-    <View className={`${containerStyles}`}>
+    <View className={`${containerStyles} `}>
       <Text className={`${textStyles}`}>{text}</Text>
     </View>
   )

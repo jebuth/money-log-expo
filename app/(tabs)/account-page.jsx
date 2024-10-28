@@ -39,7 +39,7 @@ const Account = () => {
         
           {/* <View className="bg-indigo flex flex-row justify-between mt-0 py-3 border border-black rounded-lg mx-4 mb-3"> */}
           {/* <View className="bg-zinc-700 flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 mb-3"> */}
-          <View className={`flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 mb-3 ${theme.colors.menuItemBackgroundColor}`}>
+          <View className={`flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 mb-3 shadow-md ${theme.colors.menuItemBackgroundColor}`}>
             <CustomTextLabel 
               containerStyles="mx-4" 
               //textStyles="text-xl text-discordWhite" 
@@ -61,7 +61,7 @@ const Account = () => {
           </View>
 
           <TouchableOpacity 
-            className={` ${theme.colors.buttonBackgroundColor} flex flex-row justify-between mt-0 py-3 rounded-lg mx-4`}>
+            className={` ${theme.colors.buttonBackgroundColor} flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 shadow-md`}>
             
               <CustomTextLabel 
                 containerStyles="mx-4" 

@@ -14,6 +14,8 @@ module.exports = {
     'text-discordWhite',
     'text-discordBlack',
     'text-discordRed',
+    'text-iosOffWhite',
+    'text-gainsboro',
     'focus:border-darkerGreen',
     'focus:border-discordGreen',
     'focus:border-iosBlue'

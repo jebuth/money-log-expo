@@ -15,7 +15,7 @@ const CustomTextInput = ({type, title, value, placeholder, handleChangeText, con
   return (
       <View className={`justify-center items-center ${type==="newSheetInput" && 'w-4/5 ml-1.5'}`}>
         <View className={`border-2 border-discordGrey h-12 
-           rounded-xl flex-row ${containerStyles}`}>
+           rounded-lg flex-row ${containerStyles}`}>
             <TextInput 
               className={`flex-1 text-2xl font-medium rounded-lg text-right pr-2 ${inputStyles}`}
               value={type==="amount" ? amountValue : value}

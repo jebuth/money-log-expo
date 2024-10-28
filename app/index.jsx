@@ -13,7 +13,7 @@ export default function App() {
   return (
 
     <ThemeProvider>
-      <SafeAreaView className="bg-primary h-full justify-center">
+      <SafeAreaView className={`${theme.colors.primaryBackgroundColor} h-full justify-center`}>
               <CustomButton
                   title="Sign In"
                   handlePress={()=> router.push('/log-transaction-page')}

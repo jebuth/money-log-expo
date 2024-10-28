@@ -14,9 +14,9 @@ const TabIcon = ({icon, color, name, focused}) => {
         source={icon}
         resizeMode="contain"
         tintColor={color}
-        className="w-6 h-6"
+        className="w-5 h-5"
       />
-      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`} style={{color:color}} >
+      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-base`} style={{color:color}} >
         {name}
       </Text>
     </View>
@@ -75,7 +75,7 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({color, focused}) => (
               <TabIcon 
-                icon={icons.plus}
+                icon={icons.profile}
                 color={color}
                 name='Account'
                 focused={focused}
