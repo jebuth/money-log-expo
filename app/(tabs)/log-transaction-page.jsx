@@ -38,39 +38,39 @@ const LogTransaction = () => {
             <CustomTextInput keyboardType={'default'} containerStyles={`w-1/2 mb-1 mt-1 ${theme.colors.textInputBorderHighlightedColor}`} inputStyles={theme.colors.textInputBackgroundColor + ' ' + theme.colors.textColor} />
             {/* <CustomTextInput keyboardType={'default'} containerStyles={`w-1/2 mb-1 mt-1 ${theme.colors.textInputBorderHighlightedColor}`} inputStyles={theme.colors.textInputBackgroundColor + ' ' + theme.colors.textColor} /> */}
             <PickerSelect
-            style={{
-              inputIOS:{
-                textAlign: 'right',
-                color: theme.isDarkMode ? '#DCDCDC' : '#23272A',
-                fontSize: 20,
-                fontWeight: 'bold',
-                backgroundColor: theme.isDarkMode ? '#3F3F46' : '#DCDCDC',
-                paddingLeft: 10,
-                paddingRight: 15,
-                borderRadius: 8,
-                borderColor: !categoryInputFocused ? '#99AAB5' : theme.isDarkMode ? '#009063' : '#007AFF',
-                // discord grey #99AAB5
-                borderWidth: 2,
-                height: 48,
-                marginLeft: 91,
-                width: '50%',
-                marginTop: 3
-              }
-            }}
-              onOpen={openPicker}  
-              onClose={closePicker}
-              placeholder={{
-                label: 'category',
-                value: '',
-                color: 'grey'
+              style={{
+                inputIOS:{
+                  textAlign: 'right',
+                  color: theme.isDarkMode ? '#DCDCDC' : '#23272A',
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  backgroundColor: theme.isDarkMode ? '#3F3F46' : '#DCDCDC',
+                  paddingLeft: 10,
+                  paddingRight: 15,
+                  borderRadius: 8,
+                  borderColor: !categoryInputFocused ? '#99AAB5' : theme.isDarkMode ? '#009063' : '#007AFF',
+                  // discord grey #99AAB5
+                  borderWidth: 2,
+                  height: 48,
+                  marginLeft: 91,
+                  width: '50%',
+                  marginTop: 3
+                }
               }}
+                onOpen={openPicker}  
+                onClose={closePicker}
+                placeholder={{
+                  label: 'category',
+                  value: '',
+                  color: 'grey'
+                }}
               
-               onValueChange={(value) => console.log(value)}
-               items={[
-                 { label: 'Football', value: 'football' },
-                 { label: 'Baseball', value: 'baseball' },
-                 { label: 'Hockey', value: 'hockey' },
-               ]}
+                onValueChange={(value) => console.log(value)}
+                items={[
+                  { label: 'Football', value: 'football' },
+                  { label: 'Baseball', value: 'baseball' },
+                  { label: 'Hockey', value: 'hockey' },
+                ]}
                darkTheme={theme.isDarkMode}
              />
             <CustomButton buttonStyles={`w-1/2 mb-4 mt-2 shadow-md ${theme.colors.buttonBackgroundColor}`} textStyles="text-snow font-psemibold" title="Log"/>
