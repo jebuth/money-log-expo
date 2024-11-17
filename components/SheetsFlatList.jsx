@@ -1,18 +1,24 @@
 import { FlatList, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
-import {categoryList} from '../api/apidev'
+import {sheetList} from '../api/apidev'
+import {Link, router} from 'expo-router';
 import CustomTextLabel from './CustomTextLabel'
 import {useTheme} from '../contexts/ThemeProvider'
+import {useApi} from '../contexts/ApiProvider'
 
 
 const SheetsFlatList = ({data}) => {
 
-    const {theme, toggleTheme, colors} = useTheme();
+    const {theme} = useTheme();
+    const {api} = useApi();
 
     const renderItem = ({ item }) => (
         <>
             <View className={`rounded-lg my-1 shadow-sm ${theme.colors.menuItemBackgroundColor}`}>
-                <TouchableOpacity className="rounded-lg w-full flex flex-row justify-between px-6">
+                <TouchableOpacity 
+                    className="rounded-lg w-full flex flex-row justify-between px-6"
+                    onPress={() => {api.setCurrentSheet(item); router.push('/log-transaction-page')}}
+                    >
                     <CustomTextLabel 
                         containerStyles="py-3" 
                         textStyles={`text-xl ${theme.colors.textColor}`}
@@ -34,7 +40,8 @@ const SheetsFlatList = ({data}) => {
         <>
             <View className="mt-2 max-h-[515]  rounded-lg mx-4">
                 <FlatList
-                    data={data}
+                    // data={sheetList()}
+                    data={api.sheets}
                     renderItem={renderItem}
                     keyExtractor={(item, index) => index.toString()}
                     className="w-full"

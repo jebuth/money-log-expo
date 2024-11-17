@@ -1,27 +1,28 @@
 import {Stack} from 'expo-router';
 import {StatusBar} from 'expo-status-bar'
 import { ThemeProvider } from '../contexts/ThemeProvider';
+import {ApiProvider, useApi} from '../contexts/ApiProvider';
+import {useEffect} from 'react';
+import ProtectedLayout from '../components/ProtectedLayout'
 
 const RootLayout = () => {
   return (
     <>
       <ThemeProvider>
-        <Stack>
-            <Stack.Screen name="index" options={{headerShown: false}}/>
-            <Stack.Screen name="(auth)" options={{headerShown: false}}/>
-            <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
-        </Stack>
-
-        <StatusBar backgroundColor=""
-            style="light"
-          />
-
+        <ApiProvider>
+          <Stack>
+              <Stack.Screen name="index" options={{headerShown: false}}/>
+              <Stack.Screen name="(auth)" options={{headerShown: false}}/>
+              <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
+          </Stack>
+          <StatusBar backgroundColor=""
+              style="light"
+            />
+        </ApiProvider>
       </ThemeProvider>
     </>
   )
 }
-
-// left off at 34:50. importing assets and contants
 
 export default RootLayout
 

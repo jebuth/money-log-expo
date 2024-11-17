@@ -1,3 +1,46 @@
+import axios from 'axios'
+import { BASE_URL } from '@env';
+
+const signIn = () => {
+    console.log('signing in')
+
+    return {
+        token: 'tok3n',
+        // signedIn: true
+    };
+}
+
+const getFolderId = async () => {
+    return "teststs";
+}
+
+const getSheets = async () => {
+//const getSheets = async (folderId) => {    
+    // console.log('getSheets')
+    // console.log('base_url: ' + BASE_URL)
+    const response = await axios.get(`${BASE_URL}/api/test/getsheets?id=whatever`);
+    //const response = await axios.get(`${BASE_URL}/api/test/getsheets?id=${folderId}`);
+
+    //console.log(response.data)
+    return response.data;
+}
+
+const getSheet = async (folderId) => {
+    const data = { title: "what 2024", total: "$4,626"}        
+    return data;
+}
+
+const log = async (id, data) => {
+    //console.log(data)
+    const response = await axios.post(`${BASE_URL}/api/test/update?id=${id}`, data);
+    return response;
+}
+
+const createSheet = async (data) => {
+    const response = await axios.post(`${BASE_URL}/api/test/create`, data);
+    return response;
+}
+
 export function categoryList(){
     const data = [
         { category: "Food" , amount: 240}, 
@@ -14,6 +57,8 @@ export function categoryList(){
     ]
     return data;
 }
+
+
 
 export function sheetList(){
     const data = [
@@ -34,3 +79,5 @@ export function sheetList(){
     ]
     return data;
 }
+
+export{signIn, getSheets, getSheet, log, createSheet}

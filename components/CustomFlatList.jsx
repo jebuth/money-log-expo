@@ -7,13 +7,13 @@ import {useTheme} from '../contexts/ThemeProvider'
 
 const CustomFlatList = ({data}) => {
 
-    const {theme, toggleTheme, colors} = useTheme();
+    const {theme} = useTheme();
 
     const renderItem = ({ item }) => (
         <>
         <View className="w-full flex flex-row justify-between mt-0 py-3">
-            <CustomTextLabel containerStyles="ml-10" textStyles={`text-xl ${theme.colors.textColor}`} text={item.category} />
-            <CustomTextLabel containerStyles="mr-10" textStyles={`text-xl ${theme.colors.secondaryTextColor}`} text={`$${item.amount}`} />
+            <CustomTextLabel containerStyles="ml-10" textStyles={`text-xl ${theme.colors.textColor}`} text={item.label} />
+            <CustomTextLabel containerStyles="mr-10" textStyles={`text-xl ${theme.colors.secondaryTextColor}`} text={`${item.amount}`} />
         </View>
         <View className="h-0.5 mx-10 bg-gainsboro" />
         </>

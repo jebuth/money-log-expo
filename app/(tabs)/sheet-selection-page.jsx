@@ -7,16 +7,35 @@ import CustomButton from '../../components/CustomButton'
 import CustomTextLabel from '../../components/CustomTextLabel'
 import CustomFlatList from '../../components/CustomFlatList'
 import SheetsFlatList from '../../components/SheetsFlatList'
-import { Animated } from 'react-native'
+import {Link, router} from 'expo-router';
+import { Animated, Keyboard } from 'react-native'
 import {sheetList} from '../../api/apidev'
 import {icons} from '../../constants'
 import {useTheme} from '../../contexts/ThemeProvider'
+import {useApi} from '../../contexts/ApiProvider'
 
 const SheetSelection = () => {
 
-  const {theme, toggleTheme, colors} = useTheme();
+  const {theme} = useTheme();
+  const {api} = useApi();
+
   const [inputText, setInputText] = useState('');
   const isButtonEnabled = inputText.length >= 3;
+
+  const createSheet = async () => {
+    let response = await api.createSheet('folderId', inputText);
+
+    console.log(response.status)
+    if(response.status === 200){
+      Keyboard.dismiss();
+      setInputText('');
+      router.push('/log-transaction-page')
+    }
+      
+
+    // console.log('here')
+    // console.log(response.data);
+  }
 
   return (
     <SafeAreaView className={`flex-1 ${theme.colors.primaryBackgroundColor}`}>
@@ -55,6 +74,7 @@ const SheetSelection = () => {
           
           <TouchableOpacity 
             disabled={!isButtonEnabled}
+            onPress={createSheet}
             className="border-white border-2 mr-2 rounded-full"
             >
             <Image 

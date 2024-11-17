@@ -7,10 +7,12 @@ module.exports = {
     'bg-discordRed',
     'bg-iosBlue',
     'bg-discordBlack',
+    'bg-discordDark',
     'bg-discordWhite',
     'bg-iosOffWhite',
     'bg-white',
     'bg-indigo',
+    'bg-zinc-700',
     'text-discordWhite',
     'text-discordBlack',
     'text-discordRed',
@@ -23,7 +25,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-
         'white': "#FFFFFF",
         'ivory': "#FAFAFA",
         'smoke': "#F0F0F0",
@@ -55,7 +56,6 @@ module.exports = {
         // iosGreen: "#34C759",
         // iosRed: "#FF3B30",
         // iosYellow: "#FFCC00"
-
       },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],

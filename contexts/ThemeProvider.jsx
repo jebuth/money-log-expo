@@ -7,8 +7,7 @@ import React, { createContext, useState, useContext } from 'react';
 
 const ThemeContext = createContext();
 
-// export const ThemeProvider = ({ children }) => {
-    export function ThemeProvider({children}){
+  export function ThemeProvider({children}){
 
     const [isDarkMode, setIsDarkMode] = useState(true);
     const theme = {
@@ -26,10 +25,9 @@ const ThemeContext = createContext();
             addSheetsButtonStyle: isDarkMode ? '#009063' : '#007AFF',
             // nav items
             // tabBarActiveTintColor: isDarkMode ? '#FEE75C' : '#009063',
-            tabBarActiveTintColor: isDarkMode ? '#FFFFFF' : '#009063',
+            tabBarActiveTintColor: isDarkMode ? '#FEE75C' : '#009063',
             tabBarInActiveTintColor: isDarkMode ? '#3F3F46' : '#DCDCDC',
             tabBarStyleBackgroundColor: isDarkMode ? '#23272A' : '#FFFFFF'
-
         },
         toggleTheme: () => setIsDarkMode(prev => !prev)
     };

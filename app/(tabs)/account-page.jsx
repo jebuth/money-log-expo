@@ -10,36 +10,52 @@ import SheetsFlatList from '../../components/SheetsFlatList'
 import { Animated } from 'react-native'
 import {sheetList} from '../../api/apidev'
 import {icons} from '../../constants'
+import {router} from 'expo-router';
 import {useTheme} from '../../contexts/ThemeProvider'
+import {useApi} from '../../contexts/ApiProvider'
 
 const Account = () => {
 
-  const {theme, toggleTheme, colors} = useTheme();
+  const {theme} = useTheme();
+  const {api} = useApi();
+
+  useEffect(() => {
+    if(!api.userAuthenticated){
+      //router.push('../../')
+      //router.navigate('../../');
+      router.replace('../../');
+    }
+      
+
+  }, [api])
+
+  const signOut =  async () => {
+    await api.signOut();
+
+    
+    console.log('signOut')
+    console.log(api.userAuthenticated)
+
+    //router.push('../../')
+
+  }
 
 
   return (
     <SafeAreaView className={`flex-1 ${theme.colors.primaryBackgroundColor}`}>
-       {/* <SafeAreaView className={`flex-1 bg-discordYellow`}> */}
-      {/* <SafeAreaView className={`bg-discordBlack flex-1`}> */}
-
       <View className="flex-1">
         {/* Settings header */}
-        {/* <View className="bg-discordDark rounded-xl mx-3 mt-3 flex-1"> */}
-        {/* <View className={`rounded-xl mx-3 mt-3 flex-1 ${theme.colors.secondaryBackgroundColor} bg-iosOffWhite`}> */}
-        <View className={`rounded-xl mx-3 mt-3 flex-1 ${theme.colors.secondaryBackgroundColor}`}>
+        <View className={`rounded-md mx-3 mt-3 flex-1 ${theme.colors.secondaryBackgroundColor}`}>
           <CustomTextLabel 
             containerStyles="mt-5 ml-10 mb-2" 
             // textStyles="text-3xl text-black font-pextrabold text-discordWhite" 
             textStyles={`text-3xl text-black font-pextrabold ${theme.colors.textColor}`} 
-            text="Settings"
+            text="Account"
           />
           <View className="h-0.5 mx-5 mb-4 bg-discordGrey" />
 
         {/* Settings items */}
-        
-          {/* <View className="bg-indigo flex flex-row justify-between mt-0 py-3 border border-black rounded-lg mx-4 mb-3"> */}
-          {/* <View className="bg-zinc-700 flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 mb-3"> */}
-          <View className={`flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 mb-3 shadow-md ${theme.colors.menuItemBackgroundColor}`}>
+          <View className={`flex flex-row justify-between mt-0 py-3 rounded-md mx-4 mb-3 shadow-md ${theme.colors.menuItemBackgroundColor}`}>
             <CustomTextLabel 
               containerStyles="mx-4" 
               //textStyles="text-xl text-discordWhite" 
@@ -61,23 +77,17 @@ const Account = () => {
           </View>
 
           <TouchableOpacity 
-            className={` ${theme.colors.buttonBackgroundColor} flex flex-row justify-between mt-0 py-3 rounded-lg mx-4 shadow-md`}>
-            
+            className={` ${theme.colors.buttonBackgroundColor} flex flex-row justify-between mt-0 py-3 rounded-md mx-4 shadow-md`}
+            onPress={signOut}
+            >
               <CustomTextLabel 
                 containerStyles="mx-4" 
-                //textStyles="text-xl text-discordWhite" 
                 textStyles={`text-xl ${theme.colors.textColor}`} 
                 text="Sign Out" 
               />
             </TouchableOpacity> 
-
-
-          
-   
-
         </View>
       </View>
-
     <StatusBar backgroundColor="" style="dark" />
   </SafeAreaView>
   )
