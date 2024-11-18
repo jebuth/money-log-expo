@@ -16,8 +16,6 @@ const LogTransaction = () => {
   const {api} = useApi();
 
   
-
-
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
