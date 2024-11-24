@@ -163,6 +163,9 @@ const LogTransaction = () => {
               marginLeft: 91,
               width: '50%',
               marginTop: 3
+            },
+            inputIOSContainer:{
+              pointerEvents: "none" 
             }
           }}
             onOpen={openPicker}  
