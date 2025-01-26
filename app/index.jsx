@@ -22,10 +22,12 @@ export default function App() {
 
   const signIn = async () => {
     let response = api.signIn();
+    
     // get the folderId
-    //let folderId = await api.getFolderId();
+    let folderId = await api.getFolderId();
 
     // get spreadsheets
+    
     await api.getSheets();
   }
 

@@ -10,6 +10,7 @@ import {categoryList} from '../../api/apidev'
 import {useTheme} from '../../contexts/ThemeProvider'
 import {useApi} from '../../contexts/ApiProvider'
 import PickerSelect from 'react-native-picker-select'
+//import PickerSelect from '@react-native-picker/picker'
 
 const LogTransaction = () => {
   const {theme} = useTheme();

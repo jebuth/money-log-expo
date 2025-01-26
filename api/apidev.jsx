@@ -2,7 +2,7 @@ import axios from 'axios'
 import { BASE_URL } from '@env';
 
 const signIn = () => {
-    console.log('signing in')
+    // console.log('signing in')
 
     return {
         token: 'tok3n',
@@ -16,8 +16,7 @@ const getFolderId = async () => {
 
 const getSheets = async () => {
 //const getSheets = async (folderId) => {    
-    // console.log('getSheets')
-    // console.log('base_url: ' + BASE_URL)
+    console.log('base_url: ' + BASE_URL)
     const response = await axios.get(`${BASE_URL}/api/test/getsheets?id=whatever`);
     //const response = await axios.get(`${BASE_URL}/api/test/getsheets?id=${folderId}`);
 
@@ -80,4 +79,4 @@ export function sheetList(){
     return data;
 }
 
-export{signIn, getSheets, getSheet, log, createSheet}
+export{signIn, getFolderId, getSheets, getSheet, log, createSheet}

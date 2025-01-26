@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
-import {signIn, getSheets, getSheet, getFolderId, log, createSheet} from '../api/apidev';
+import {signIn, getFolderId, getSheets, getSheet, log, createSheet} from '../api/apidev';
+//import firebaseApp from '../app/firebase';
 
 const ApiContext = createContext();
 
@@ -22,10 +23,24 @@ export function ApiProvider({children}){
 
         // sign in, set the token
         signIn: async () => {
-            let response = signIn();
-            setToken(response.token);
-            setUserAuthenticated(true);
-            return response;
+            // get the response from google
+            let idToken = await signIn();
+
+            setToken(idToken);
+            setUserAuthenticated(idToken);
+
+            // set token and other app states
+            // console.log("ApiProvider idToken: ")
+            // console.log(idToken)
+
+            // ensure the idToken has a value. next step is to call get folder
+            return idToken;
+        },
+
+        getFolderId: async (token) => {
+            let folderId = await getFolderId(token);
+
+            console.log(folderId);
         },
 
         signOut: async () => {
@@ -38,6 +53,7 @@ export function ApiProvider({children}){
         },
 
         getFolderId: async () => {
+            
             return await getFolderId();
         },
 
@@ -53,7 +69,6 @@ export function ApiProvider({children}){
         getSheetApi: () => getSheet(),
 
         log: async (id, amount, desc, cat) => {
-            
             let data = {
                 amount: amount,
                 description: desc,
@@ -83,8 +98,11 @@ export function ApiProvider({children}){
         }
     }
 
+    const firebaseApp = {firebaseApp}
+
 
     return (
+        // <ApiContext.Provider value={{ api, firebaseApp }}>
         <ApiContext.Provider value={{ api }}>
             {children}
       </ApiContext.Provider>
